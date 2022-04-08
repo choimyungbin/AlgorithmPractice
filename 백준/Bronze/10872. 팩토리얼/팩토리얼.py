@@ -1,7 +1,6 @@
-def factorial(n):
-    if(n>1):
-        return n*factorial(n-1)
-    else:
-        return 1
+result = 1
 N = int(input())
-print(factorial(N))
+for num in range(1,N+1,1):
+    result *= num
+
+print(result)
