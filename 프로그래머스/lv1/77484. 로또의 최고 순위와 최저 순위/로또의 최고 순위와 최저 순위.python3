@@ -1,0 +1,18 @@
+# lottos: 로또번호 배열, win_nums: 당첨번호 배열
+def solution(lottos, win_nums):
+    answer = []
+    candWin = 0
+    candLose = 0
+    for i in range(len(lottos)):
+        if lottos[i] in win_nums:
+            candWin+=1
+            candLose+=1
+        elif lottos[i] == 0:
+            candWin+=1
+    if candWin>=2 and candWin<=6:
+        answer.append(7-candWin)
+    else: answer.append(6)
+    if candLose>=2 and candLose<=6:
+        answer.append(7-candLose)
+    else: answer.append(6)
+    return answer
