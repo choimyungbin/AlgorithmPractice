@@ -1,0 +1,28 @@
+def solution(new_id):
+    answer = ''
+    # 1단계
+    answer = new_id.lower()
+    # 2단계
+    for i in answer:
+        if i in '~!@#$%^&*()=+[{]}:?,<>/':
+            answer = answer.replace(i, '')
+    # 4단계
+    answer = answer.strip('.')
+    # 3단계
+    while '..' in answer:
+        answer = answer.replace('..','.')
+    # 5단계
+    if answer == '':
+        answer = 'a'
+    # 6단계
+    print(len(answer))
+    if len(answer)>15:
+        answer = answer[:15]
+    # 7단계
+    while len(answer)<=2:
+        answer = answer+answer[len(answer)-1]
+    #4단계
+    answer = answer.strip('.')
+    print(answer)
+    return answer
+solution("abcdefghijklmn.p")
