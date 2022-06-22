@@ -1,0 +1,10 @@
+def solution(array, commands):
+    answer = []
+    cand = []
+    for i in commands:
+        for j in range(i[0]-1, i[1]):
+            cand.append(array[j])
+        cand.sort()
+        answer.append(cand[i[2]-1])
+        cand.clear()
+    return answer
