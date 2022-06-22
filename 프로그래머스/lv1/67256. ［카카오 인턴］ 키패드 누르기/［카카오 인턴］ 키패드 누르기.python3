@@ -1,0 +1,49 @@
+def solution(numbers, hand):
+    answer = ''
+    ans_arr = []
+    dist_2 = [1,0,1,2,1,2,3,2,3,4,3,4]
+    dist_5 = [2,1,2,1,0,1,2,1,2,3,2,3]
+    dist_8 = [3,2,3,2,1,2,1,0,1,2,1,2]
+    dist_0 = [4,3,4,3,2,3,2,1,2,1,0,1]
+    left_now = 10
+    right_now = 12
+    for i in numbers:
+        if i in [1,4,7]:
+            ans_arr.append('L')
+            left_now = i
+        elif i in [3,6,9]:
+            ans_arr.append('R')
+            right_now = i
+        elif i==2:
+            if dist_2[left_now-1] < dist_2[right_now-1] or (dist_2[left_now-1]==dist_2[right_now-1] and hand=='left'):
+                ans_arr.append('L')
+                left_now = i
+            if dist_2[left_now-1]>dist_2[right_now-1] or (dist_2[left_now-1]==dist_2[right_now-1] and hand=='right'):
+                ans_arr.append('R')
+                right_now = i
+        elif i==5:
+            if dist_5[left_now-1] < dist_5[right_now-1] or (dist_5[left_now-1]==dist_5[right_now-1] and hand=='left'):
+                ans_arr.append('L')
+                left_now = i
+            if dist_5[left_now-1]>dist_5[right_now-1] or (dist_5[left_now-1]==dist_5[right_now-1] and hand=='right'):
+                ans_arr.append('R')
+                right_now = i
+        elif i==8:
+            if dist_8[left_now-1] < dist_8[right_now-1] or (dist_8[left_now-1]==dist_8[right_now-1] and hand=='left'):
+                ans_arr.append('L')
+                left_now = i
+            if dist_8[left_now-1]>dist_8[right_now-1] or (dist_8[left_now-1]==dist_8[right_now-1] and hand=='right'):
+                ans_arr.append('R')
+                right_now = i
+        elif i==0:
+            if dist_0[left_now-1] < dist_0[right_now-1] or (dist_0[left_now-1]==dist_0[right_now-1] and hand=='left'):
+                ans_arr.append('L')
+                left_now = 11
+            if dist_0[left_now-1]>dist_0[right_now-1] or (dist_0[left_now-1]==dist_0[right_now-1] and hand=='right'):
+                ans_arr.append('R')
+                right_now = 11
+
+    answer = ''.join(ans_arr)
+
+    return answer
+print(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 0],"right"))
