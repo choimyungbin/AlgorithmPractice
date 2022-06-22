@@ -1,0 +1,26 @@
+def solution(s):
+    answer = 0
+    while 'zero' in s:
+        s = s.replace('zero','0')
+    while 'one' in s:
+        s = s.replace('one','1')
+    while 'two' in s:
+        s = s.replace('two','2')
+    while 'three' in s:
+        s = s.replace('three','3')
+    while 'four' in s:
+        s = s.replace('four','4')
+    while 'five' in s:
+        s = s.replace('five','5')
+    while 'six' in s:
+        s = s.replace('six','6')
+    while 'seven' in s:
+        s = s.replace('seven','7')
+    while 'eight' in s:
+        s = s.replace('eight','8')
+    while 'nine' in s:
+        s = s.replace('nine','9')
+    answer = int(s)
+    return answer
+
+print(solution("123"))
